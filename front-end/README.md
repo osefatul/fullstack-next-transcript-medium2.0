@@ -18,4 +18,6 @@ Thats how we created this project repository:
 
 #### For SSR(Service side rendering):
 
-- we are introducing a function where it will fetch data (posts) from sanityClient and then will return it, we will use that props into Home.
+- we are introducing a function where it will fetch data (posts) from sanityClient and then will return it, we will use that props into Home. In typescript we can't just pass props into component we have to define types first.
+
+- posts:[Post] - means that the type of posts will as it described in the Post interface.

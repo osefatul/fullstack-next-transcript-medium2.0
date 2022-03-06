@@ -2,8 +2,17 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../components/Header'
+import {sanityClient, urlFor} from "../../sanity-nextmedium/sanity"
+import {Post} from "../../sanity-nextmedium/typings"
 
-const Home: NextPage = () => {
+
+// typescripts interface
+interface Props {
+  posts:[Post]}
+
+
+const Home = ({posts}: Props) => {
+  console.log(posts)
   return (
     <div className="max-w-7xl mx-auto">
       <Head>
@@ -36,5 +45,18 @@ export default Home
 // this will change the index Home page root into server side rendered page.
 
 export const getServerSideProps = async ()=>{
-  const query = await
+  const query = `*[_type == "post"]{
+    _id,
+    title,
+    author->{name, image},
+    slug,
+    description,
+    mainImage
+  }`;
+
+  const posts = await sanityClient.fetch(query)
+
+  return {
+    props:{posts}
+  }
 }

@@ -31,3 +31,10 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+
+// this will change the index Home page root into server side rendered page.
+
+export const getServerSideProps = async ()=>{
+  const query = await
+}

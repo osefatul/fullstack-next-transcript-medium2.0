@@ -1,5 +1,7 @@
 # Sanity Blogging Content Studio
 
+- install sanity cli first.
+- sanity login
 - Sanity start
 - npm i next-sanity
 - once you installed sanity - you find your api data {projectId and dataset} in sanity.json.

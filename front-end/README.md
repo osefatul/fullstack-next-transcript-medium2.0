@@ -14,7 +14,7 @@ Thats how we created this project repository:
 - [Width: w-44](https://tailwindcss.com/docs/width)- means the width: 11rem
 - [Space: space-x-5](https://tailwindcss.com/docs/space)- space between 5px
 - [Max-width: max-w-7xl](https://tailwindcss.com/docs/max-width)- maximuim width
-- mx-auto : margin-left: auto and margin-right: auto
+- mx-auto : margin-left: auto and margin-right: auto which put it in the center.
 - [`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 p-2 md:p-6`](https://tailwindcss.com/docs/grid-template-columns):
   - grid: by default this will be grid display opposite of flex.
   - grid-cols-1: for mobile design it will only have one column.
@@ -28,8 +28,8 @@ Thats how we created this project repository:
 
 - posts:[Post] - means that the type of posts will be as it described in the Post interface.
 
-#### How to make dynamic pages whenever a user requst.
+#### How to make dynamic pages whenever a user requst - [slug]
 
-- We are going to use a technic where once a user requests a page it will be pre-fetched and made and then cached for further request by other users. we are going to use a sepcial function `getStaticPaths`, this will allow nextJs which routes it pre-fecthed pre-build in advance.
+- We are going to use a technic where once a user requests a page it will be pre-fetched and made and then cached for further request by other users. we are going to use a sepcial function `getStaticPaths`, this will allow nextJs which routes it to a page that is pre-fecthed and pre-built in advance.
 
 - Create `post` directory in the `/pages` folder and then create a file `{slug}.tsx`. This means from a url perspective: `/pages/post/{slug}`. now slug can be any dynamic value for a page.

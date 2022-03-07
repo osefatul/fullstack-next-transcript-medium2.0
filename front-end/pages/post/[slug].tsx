@@ -13,7 +13,16 @@ interface Props {
 function Post ({post}:Props) {
   console.log(post)
   return (
-    <main><Header /></main>
+    <main><Header />
+    
+    <img className="w-full h-48 object-cover" src={urlFor(post.mainImage).url()!} alt="" />
+
+    <article>
+      <h1>{post.title}</h1>
+    </article>
+    </main>
+
+
   )
 }
 export default Post

@@ -11,7 +11,7 @@ import Link from 'next/link'
 interface Props {
   posts:[Post]}
 
-
+//posts types is Props
 const Home = ({posts}: Props) => {
   console.log(posts)
   return (
@@ -65,8 +65,7 @@ const Home = ({posts}: Props) => {
 export default Home
 
 
-// this will change the index Home page root into server side rendered page.
-
+// this will change the index Home/root page into server side rendered page.
 export const getServerSideProps = async ()=>{
   const query = `*[_type == "post"]{
     _id,

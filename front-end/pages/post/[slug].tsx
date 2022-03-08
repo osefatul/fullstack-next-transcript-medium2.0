@@ -4,14 +4,27 @@ import {sanityClient, urlFor} from "../../../sanity-nextmedium/sanity"
 import { Post } from '../../../sanity-nextmedium/typings'
 import Header from '../../components/Header'
 import PortableText from "react-portable-text"
+import { useForm, SubmitHandler } from "react-hook-form";
+
 
 interface Props { 
   post:Post
 }
 
 
+interface IFormInput {
+  _id:string;
+  name:string;
+  email:string;
+  comment:string
+
+}
+
 function Post ({post}:Props) {
-  console.log(post)
+
+  const {register, handleSubmit, formState: {errors}} = useForm()
+
+
   return (
     <main><Header />
     
@@ -55,34 +68,64 @@ function Post ({post}:Props) {
       </div>
     </article>
 
+
     <hr className="max-w-lg my-5 mx-auto border border-yellow-500 " />
 
 
-
     <form className="grid p-5 max-w-2xl mb-10 mx-auto">
-
       <h3 className="text-sm text-yellow-500 ">Enoyed this article?</h3>
       <h4 className="text-3xl font-bold ">Leave a comment below!</h4>
       <hr className="py-3 mt-2" />
 
+      <input type="hidden"
+        {...register("_id")}
+        name="_id"
+        value={post._id}
       
-    <label className="block mb-5" htmlFor="">
-      <span className="text-gray-700">Name</span>
-      <input className="shadow border rounded py-2 px-3 form-input block mt-1 w-full ring-yellow-500 outline-none focus:ring " 
-      placeholder="Ex - Mike" type="text" />  
-    </label>  
-    <label className="block mb-5" htmlFor="">
-      <span className="text-gray-700">Email</span>
-      <input className="shadow border rounded py-2 px-3 form-input block mt-1 w-full ring-yellow-500 outline-none focus:ring " 
-      placeholder="Ex - Mike@gmial.com" type="email" />  
-    </label>  
-    <label className="block mb-5" htmlFor="">
-      <span className="text-gray-700">Comment</span>
-      <textarea className=" shadow block border w-full rounded mt-1 py-2 px-3 form-textarea outline-none ring-yellow-500 focus:ring" 
-        placeholder="Write your comments or feedbacks" rows={8} />  
-    </label>  
-   
+      />
       
+      <label className="block mb-5" htmlFor="">
+        <span className="text-gray-700">Name</span>
+        <input className="shadow border rounded py-2 px-3 form-input block mt-1 w-full ring-yellow-500 outline-none focus:ring " 
+        placeholder="Ex - Mike" type="text" 
+        {...register("name", { required:true})}
+        />  
+      </label>  
+
+      <label className="block mb-5" htmlFor="">
+        <span className="text-gray-700">Email</span>
+        <input className="shadow border rounded py-2 px-3 form-input block mt-1 w-full ring-yellow-500 outline-none   focus:ring " 
+        placeholder="Ex - Mike@gmial.com" type="email" 
+        {...register("email", { required:true})}
+        />  
+      </label>  
+
+      <label className="block mb-5" htmlFor="">
+        <span className="text-gray-700">Comment</span>
+        <textarea className=" shadow block border w-full rounded mt-1 py-2 px-3 form-textarea outline-none ring-yellow-500 focus:ring" 
+        placeholder="Write your comments or feedbacks" rows={8} 
+        {...register("commment", { required:true})}
+        />  
+      </label>
+
+      {/*Errors will return when field validation fails */}
+      
+      <div className="grid p-5">
+        {errors.name && (
+          <span className="text-red-500">The Name Field is required</span>
+        )}
+
+        {errors.email && (
+          <span className="text-red-500">The Email Field is required</span>
+        )}
+
+        {errors.comment && (
+          <span className="text-red-500">The comment Field is required</span>
+        )}
+      </div>
+      
+
+      <input type="submit" className="shadow bg-yellow-500 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded cursor-pointer"/>
     </form>
     </main>
 

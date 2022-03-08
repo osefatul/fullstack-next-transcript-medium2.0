@@ -22,8 +22,19 @@ interface IFormInput {
 
 function Post ({post}:Props) {
 
-  const {register, handleSubmit, formState: {errors}} = useForm()
+  const {register, handleSubmit, formState: {errors}} = useForm<IFormInput> ()
 
+  //by using SubmitHandler<IFormInput> It know what to expect
+  const onSubmit: SubmitHandler<IFormInput> = async (data)=>{
+    await fetch("/api/createComment", {
+      method: "POST",
+      body: JSON.stringify(data)
+    }).then(() =>{
+      console.log(data);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
 
   return (
     <main><Header />
@@ -72,7 +83,7 @@ function Post ({post}:Props) {
     <hr className="max-w-lg my-5 mx-auto border border-yellow-500 " />
 
 
-    <form className="grid p-5 max-w-2xl mb-10 mx-auto">
+    <form className="grid p-5 max-w-2xl mb-10 mx-auto" onSubmit={handleSubmit(onSubmit)}>
       <h3 className="text-sm text-yellow-500 ">Enoyed this article?</h3>
       <h4 className="text-3xl font-bold ">Leave a comment below!</h4>
       <hr className="py-3 mt-2" />
@@ -102,9 +113,9 @@ function Post ({post}:Props) {
 
       <label className="block mb-5" htmlFor="">
         <span className="text-gray-700">Comment</span>
-        <textarea className=" shadow block border w-full rounded mt-1 py-2 px-3 form-textarea outline-none ring-yellow-500 focus:ring" 
+        <textarea  className=" shadow block border w-full rounded mt-1 py-2 px-3 form-textarea outline-none ring-yellow-500 focus:ring" 
         placeholder="Write your comments or feedbacks" rows={8} 
-        {...register("commment", { required:true})}
+        {...register("comment", { required:true})}
         />  
       </label>
 

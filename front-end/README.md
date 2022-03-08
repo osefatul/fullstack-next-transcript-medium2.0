@@ -33,3 +33,5 @@ Thats how we created this project repository:
 - We are going to use a technic where once a user requests a page it will be pre-fetched and made and then cached for further request by other users. we are going to use a sepcial function `getStaticPaths`, this will allow nextJs which routes it to a page that is pre-fecthed and pre-built in advance.
 
 - Create `post` directory in the `/pages` folder and then create a file `{slug}.tsx`. This means from a url perspective: `/pages/post/{slug}`. now slug can be any dynamic value for a page.
+
+- once we click on the submit button it will post the data to the api link. we can use the built-in server in next.js

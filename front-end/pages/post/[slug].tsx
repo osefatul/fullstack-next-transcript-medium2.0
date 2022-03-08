@@ -4,8 +4,7 @@ import {sanityClient, urlFor} from "../../../sanity-nextmedium/sanity"
 import { Post } from '../../../sanity-nextmedium/typings'
 import Header from '../../components/Header'
 import PortableText from "react-portable-text"
-import urlBuilder from '@sanity/image-url'
-import { getImageDimensions } from '@sanity/asset-utils'
+
 interface Props { 
   post:Post
 }
@@ -33,7 +32,7 @@ function Post ({post}:Props) {
         </p>
       </div>
 
-      <div>
+      <div className="mt-10">
         <PortableText 
         dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} 
         projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} 
@@ -50,15 +49,41 @@ function Post ({post}:Props) {
           ),
 
           link: ({href, children}: any) =>(
-            <a href={href} className="text-blue-500 hover:underline"> {children}</a> 
-          )
-    
-          
-
+            <a href={href} className="text-blue-500 hover:underline"> {children}</a>)
         }}
         />
       </div>
     </article>
+
+    <hr className="max-w-lg my-5 mx-auto border border-yellow-500 " />
+
+
+
+    <form className="grid p-5 max-w-2xl mb-10 mx-auto">
+
+      <h3 className="text-sm text-yellow-500 ">Enoyed this article?</h3>
+      <h4 className="text-3xl font-bold ">Leave a comment below!</h4>
+      <hr className="py-3 mt-2" />
+
+      
+    <label className="block mb-5" htmlFor="">
+      <span className="text-gray-700">Name</span>
+      <input className="shadow border rounded py-2 px-3 form-input block mt-1 w-full ring-yellow-500 outline-none focus:ring " 
+      placeholder="Ex - Mike" type="text" />  
+    </label>  
+    <label className="block mb-5" htmlFor="">
+      <span className="text-gray-700">Email</span>
+      <input className="shadow border rounded py-2 px-3 form-input block mt-1 w-full ring-yellow-500 outline-none focus:ring " 
+      placeholder="Ex - Mike@gmial.com" type="email" />  
+    </label>  
+    <label className="block mb-5" htmlFor="">
+      <span className="text-gray-700">Comment</span>
+      <textarea className=" shadow block border w-full rounded mt-1 py-2 px-3 form-textarea outline-none ring-yellow-500 focus:ring" 
+        placeholder="Write your comments or feedbacks" rows={8} />  
+    </label>  
+   
+      
+    </form>
     </main>
 
 

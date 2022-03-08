@@ -21,13 +21,13 @@ const Home = ({posts}: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
+      <Header />    
 
       <div className="flex justify-between items-center bg-yellow-400 border-y border-black py-10 lg:py-0">
         <div className="px-10 space-y-5">
           <h1 className="text-6xl max-w-xl font-serif">
             <span className="underline decoration-black decoration-4">Medium</span> is a place to write, read, and connect
-            </h1>
+          </h1>
           <h2>
             It's easy and free to post your thinking on any topic and connect with millions of readers
           </h2>
@@ -46,7 +46,7 @@ const Home = ({posts}: Props) => {
              {/* ! means to ensure this is not null */}
              <img className="h-60 w-full object-cover group-hover:scale-105 transition-transform duration-200 ease-in-out" src={urlFor(post.mainImage).url()!} alt="" />
              <div className="flex justify-between p-5 bg-white">
-               <div>
+              <div>
                  <p className="text-lg font-bold">{post.title}</p>
                  <p className="text-xs">{post.description} by {post.author.name}</p>
                </div>

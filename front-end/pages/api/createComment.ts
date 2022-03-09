@@ -9,7 +9,7 @@ export const config = {
   useCdn: process.env.NODE_ENV === "production",
 };
 
-const project: number;
+
 export default function createComment(
   req: NextApiRequest,
   res: NextApiResponse

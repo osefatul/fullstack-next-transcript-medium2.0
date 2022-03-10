@@ -24,7 +24,7 @@ function Post ({post}:Props) {
 
   const {register, handleSubmit, formState: {errors}} = useForm<IFormInput> ()
 
-  //by using SubmitHandler<IFormInput> It know what to expect
+  //by using SubmitHandler<IFormInput> It knows what to expect
   const onSubmit: SubmitHandler<IFormInput> = async (data)=>{
     await fetch("/api/createComment", {
       method: "POST",
@@ -88,11 +88,11 @@ function Post ({post}:Props) {
       <h4 className="text-3xl font-bold ">Leave a comment below!</h4>
       <hr className="py-3 mt-2" />
 
+      {/* JUST TO STORE POST ID AND REGISTERED WITH THE FORM  */}
       <input type="hidden"
         {...register("_id")}
         name="_id"
         value={post._id}
-      
       />
       
       <label className="block mb-5" htmlFor="">

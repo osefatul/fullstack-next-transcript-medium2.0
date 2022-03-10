@@ -21,8 +21,25 @@ export default async function createComment(
   const {_id, name, email, comment} = JSON.parse (req.body);
 
   try {
-    await client.create({})
+
+    // we are creating a new type in the conetent.
+    await client.create({
+      _type: "comment",
+      post: {
+        _type: "reference",
+        _ref: _id // reference the entire object like a relational database
+      },
+      name,
+      email,
+      comment
+    })
+  }catch(err) {
+    console.log(err);
+    return res.status(500).json ({message: "Couldn't submit comment", err});
   }
 
-  res.status(200).json({ name: 'John Doe' })
+
+  console.log("Comment Submitted")
+
+  res.status(200).json({ message: "Comment submitted"})
 }

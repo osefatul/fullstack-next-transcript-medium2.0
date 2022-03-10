@@ -35,3 +35,6 @@ Thats how we created this project repository:
 - Create `post` directory in the `/pages` folder and then create a file `{slug}.tsx`. This means from a url perspective: `/pages/post/{slug}`. now slug can be any dynamic value for a page.
 
 - once we click on the submit button it will post the data to the api link. we can use the built-in server in next.js
+  - got to pages/api and create a file createComment.ts
+  - here we are creating a new type in the sanity conent.
+  - once we are done We then need to update our schema because we need to see the updated comment in the content section of sanity along with Post, Author and Category.

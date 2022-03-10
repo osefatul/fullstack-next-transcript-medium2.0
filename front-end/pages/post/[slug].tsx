@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import React from 'react'
+import React, { useState } from 'react'
 import {sanityClient, urlFor} from "../../../sanity-nextmedium/sanity"
 import { Post } from '../../../sanity-nextmedium/typings'
 import Header from '../../components/Header'
@@ -23,6 +23,8 @@ interface IFormInput {
 function Post ({post}:Props) {
 
   const {register, handleSubmit, formState: {errors}} = useForm<IFormInput> ()
+
+  const [submitted, setSubmitted] = useState(false)
 
   //by using SubmitHandler<IFormInput> It knows what to expect
   const onSubmit: SubmitHandler<IFormInput> = async (data)=>{

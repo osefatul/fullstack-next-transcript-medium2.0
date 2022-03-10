@@ -88,7 +88,10 @@ function Post ({post}:Props) {
     <hr className="max-w-lg my-5 mx-auto border border-yellow-500 " />
 
 
-    <form className="grid p-5 max-w-2xl mb-10 mx-auto" onSubmit={handleSubmit(onSubmit)}>
+    {submitted ? (
+      <h1>Submitted</h1>
+    ):(
+<form className="grid p-5 max-w-2xl mb-10 mx-auto" onSubmit={handleSubmit(onSubmit)}>
       <h3 className="text-sm text-yellow-500 ">Enoyed this article?</h3>
       <h4 className="text-3xl font-bold ">Leave a comment below!</h4>
       <hr className="py-3 mt-2" />
@@ -143,6 +146,10 @@ function Post ({post}:Props) {
 
       <input type="submit" className="shadow bg-yellow-500 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded cursor-pointer"/>
     </form>
+    )}
+
+
+    
     </main>
 
 

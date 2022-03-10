@@ -89,7 +89,12 @@ function Post ({post}:Props) {
 
 
     {submitted ? (
-      <h1>Submitted</h1>
+      <div className="grid p-10 my-10 bg-yellow-500 text-white max-w-2xl mx-auto ">
+        <h3 className="text-3xl font-bold">Thank you for submitting your comment!</h3>
+        <p>
+          Once it has been approved, it will apear below
+        </p>
+      </div>
     ):(
 <form className="grid p-5 max-w-2xl mb-10 mx-auto" onSubmit={handleSubmit(onSubmit)}>
       <h3 className="text-sm text-yellow-500 ">Enoyed this article?</h3>

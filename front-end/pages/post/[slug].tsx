@@ -34,6 +34,7 @@ function Post ({post}:Props) {
       body: JSON.stringify(data)
     }).then(() =>{
       console.log(data);
+      setSubmitted(true)//comment submit is true
     }).catch((err) => {
       console.log(err);
     })

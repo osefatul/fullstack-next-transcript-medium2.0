@@ -37,6 +37,7 @@ function Post ({post}:Props) {
       setSubmitted(true)//comment submit is true
     }).catch((err) => {
       console.log(err);
+      setSubmitted(false)//comment submit is false 
     })
   }
 

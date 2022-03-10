@@ -24,6 +24,7 @@ function Post ({post}:Props) {
 
   const {register, handleSubmit, formState: {errors}} = useForm<IFormInput> ()
 
+  //after we submit the form this is from comment to show us it is submitted
   const [submitted, setSubmitted] = useState(false)
 
   //by using SubmitHandler<IFormInput> It knows what to expect

@@ -22,8 +22,6 @@ interface IFormInput {
 
 function Post ({post}:Props) {
 
-  console.table(post)
-
   const {register, handleSubmit, formState: {errors}} = useForm<IFormInput> ()
 
   //after we submit the form this is from comment to show us it is submitted
@@ -173,7 +171,7 @@ function Post ({post}:Props) {
       {post.comments.map(comment=>(
         <div>
           <p>
-            <span className="text-yellow-500">
+            <span className="text-yellow-500 capitalize">
             {comment.name}:  </span>
             {comment.comment}
           </p>

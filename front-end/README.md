@@ -4,6 +4,8 @@ Thats how we created this project repository:
 
 - npx create-next-app --example with-tailwindcss with-tailwindcss-app
 
+We are just going to write comments and highlights of the front end down here.
+
 ### index.jsx
 
 - download Taiwind CSS intelliSense on Vscode for autocomplete

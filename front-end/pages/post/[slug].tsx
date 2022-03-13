@@ -6,12 +6,12 @@ import Header from '../../components/Header'
 import PortableText from "react-portable-text"
 import { useForm, SubmitHandler } from "react-hook-form";
 
-
+// Fetch Post from typings.
 interface Props { 
   post:Post
 }
 
-
+// Introduce a type for submithandle
 interface IFormInput {
   _id:string;
   name:string;
@@ -90,7 +90,7 @@ function Post ({post}:Props) {
 
     {submitted ? (
       <div className="grid p-10 my-10 bg-yellow-500 text-white max-w-2xl mx-auto ">
-        <h3 className="text-3xl font-bold">Thank you for submitting your comment!</h3>
+        <h3 className="text-3xl">Thank you for submitting your comment!</h3>
         <p>
           Once it has been approved, it will apear below
         </p>

@@ -1,4 +1,4 @@
-# Next.js + Tailwind CSS Example
+# MEDIUM DESIGN && TAILWIND USAGE.
 
 Thats how we created this project repository:
 
